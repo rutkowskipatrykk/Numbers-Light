@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Numbers Light</string>
+    <string name="network_error">Brak internetu</string>
+</resources>

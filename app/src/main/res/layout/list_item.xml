@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.numberslight.model.ListElement" />
+
+        <variable
+            name="listener"
+            type="com.example.numberslight.view.recyclerview.OnClickListElement" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/element_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_item_background"
+        android:onClick="@{() -> listener.onClick(model)}"
+        android:padding="@dimen/margin_16">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="@dimen/small_image_view_width"
+            android:layout_height="@dimen/small_image_view_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:url="@{model.image}" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16"
+            android:text="@{model.name}"
+            app:layout_constraintBottom_toBottomOf="@+id/item_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_image"
+            app:layout_constraintTop_toTopOf="@+id/item_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
